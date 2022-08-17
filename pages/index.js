@@ -1,3 +1,11 @@
+import Sidebar from "../components/Sidebar";
+import Userpage from "../components/Userpage";
+
 export default function Home() {
-  return <div>Hello world!</div>;
+  return (
+    <div className="flex">
+      <Sidebar />
+      <Userpage />
+    </div>
+  );
 }

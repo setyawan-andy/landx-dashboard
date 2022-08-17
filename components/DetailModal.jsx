@@ -120,11 +120,11 @@ const DetailModal = ({ openDetails, setOpenDetails, datas, detailID }) => {
                         </div>
                         <div className="bg-gray-200 rounded-md flex-1 p-2">
                           <div className="text-xs flex-col">
-                            <h2>{datas[detailID - 1].company.name || null}</h2>
+                            <h2>{datas[detailID - 1]?.company.name || null}</h2>
                             <h2>
-                              {datas[detailID - 1].company.catchPhrase || null}
+                              {datas[detailID - 1]?.company.catchPhrase || null}
                             </h2>
-                            <h2>{datas[detailID - 1].company.bs || null}</h2>
+                            <h2>{datas[detailID - 1]?.company.bs || null}</h2>
                           </div>
                         </div>
                       </div>

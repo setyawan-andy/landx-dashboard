@@ -13,43 +13,51 @@ const menus = [
     name: "Dashboard",
     url: "/",
     icon: <MdOutlineDashboard size={20} />,
+    selected: false,
   },
   {
     name: "Users",
     url: "/",
     icon: <AiOutlineUser size={20} />,
+    selected: true,
   },
   {
     name: "Messages",
     url: "/",
     icon: <FiMessageSquare size={20} />,
+    selected: false,
   },
   {
     name: "Reports",
     url: "/",
     icon: <TbReportAnalytics size={20} />,
     margin: true,
+    selected: false,
   },
   {
     name: "Favorites",
     url: "/",
     icon: <AiOutlineHeart size={20} />,
+    selected: false,
   },
   {
     name: "Orders",
     url: "/",
     icon: <FiShoppingCart size={20} />,
+    selected: false,
   },
   {
     name: "Folders",
     url: "/",
     icon: <FiFolder size={20} />,
     margin: true,
+    selected: false,
   },
   {
     name: "Settings",
     url: "/",
     icon: <RiSettings4Line size={20} />,
+    selected: false,
   },
 ];
 
@@ -61,7 +69,7 @@ const Sidebar = () => {
       <div
         className={`${
           openSidebar ? "w-64" : "w-16"
-        } bg-[#1d1e41] absolute md:relative z-10 md:z-0 min-h-[100vh] md:min-h-screen text-gray-400 px-4`}
+        } bg-[#1d1e41] fixed md:relative z-10 md:z-0 min-h-[100vh] md:min-h-screen text-gray-400 px-4`}
       >
         <div className="py-6 flex justify-between pl-2">
           {openSidebar && (
@@ -80,7 +88,8 @@ const Sidebar = () => {
             <Link href={menu.url} key={index}>
               <a
                 className={`${
-                  menu.margin && "mt-5"
+                  (menu.margin && "mt-5",
+                  menu.selected && "bg-[#27274d] text-gray-100")
                 } group flex items-center hover:text-gray-100 text-sm gap-6 font-medium p-2 hover:bg-[#27274f] rounded-md`}
               >
                 <div>{menu.icon}</div>

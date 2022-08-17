@@ -1,3 +1,4 @@
+import { data } from "autoprefixer";
 import React, { useState } from "react";
 
 import DetailModal from "./DetailModal";
@@ -26,7 +27,7 @@ const UserTable = ({ datas, search }) => {
 
   return (
     <div>
-      <div className="bg-[#FFFFFF] rounded-lg px-8 pt-6 pb-4">
+      <div className="bg-[#FFFFFF] hidden md:block rounded-lg px-8 pt-6 pb-4">
         <table className="w-full">
           <thead className="text-xs border-b border-gray-200 text-gray-400 font-light">
             <tr>
@@ -77,13 +78,60 @@ const UserTable = ({ datas, search }) => {
             ))}
           </tbody>
         </table>
-        <DetailModal
-          openDetails={openDetails}
-          setOpenDetails={setOpenDetails}
-          datas={datas}
-          detailID={detailID}
-        />
       </div>
+
+      <div className="overflow-auto ml-12 grid grid-cols-1 gap-3 md:hidden">
+        {filteredData.map((data, index) => (
+          <div
+            key={index}
+            className="bg-white space-y-2 p-4 rounded-lg shadow"
+            onClick={() => {
+              setOpenDetails(true), setDetailID(data.id);
+            }}
+          >
+            <div className="flex-col space-y-3 items-center text-xs">
+              <div className="flex items-center justify-between">
+                <div className="w-20">
+                  <div>Name</div>
+                </div>
+                <div className="bg-gray-200 rounded-md flex-1 p-2">
+                  {data.name}
+                </div>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="w-20">
+                  <div>Username</div>
+                </div>
+                <div className="bg-gray-200 rounded-md flex-1 p-2">
+                  {data.username}
+                </div>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="w-20">
+                  <div>Email</div>
+                </div>
+                <div className="bg-gray-200 rounded-md flex-1 p-2">
+                  {data.email}
+                </div>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="w-20">
+                  <div>Phone</div>
+                </div>
+                <div className="bg-gray-200 rounded-md flex-1 p-2">
+                  {data.phone}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <DetailModal
+        openDetails={openDetails}
+        setOpenDetails={setOpenDetails}
+        datas={datas}
+        detailID={detailID}
+      />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
-const DetailModal = ({ openDetails, setOpenDetails }) => {
+const DetailModal = ({ openDetails, setOpenDetails, datas, detailID }) => {
   return (
     <div>
       <Transition appear show={openDetails} as={Fragment}>
@@ -47,7 +47,7 @@ const DetailModal = ({ openDetails, setOpenDetails }) => {
                           <h2 className="text-xs font-medium">ID</h2>
                         </div>
                         <div className="bg-gray-200 rounded-md flex-1 p-2">
-                          <h2 className="text-xs">1</h2>
+                          <h2 className="text-xs">{datas[detailID - 1]?.id}</h2>
                         </div>
                       </div>
                       <div className="flex items-center">
@@ -55,7 +55,9 @@ const DetailModal = ({ openDetails, setOpenDetails }) => {
                           <h2 className="text-xs font-medium">Name</h2>
                         </div>
                         <div className="bg-gray-200 rounded-md flex-1 p-2">
-                          <h2 className="text-xs">Leanne Graham</h2>
+                          <h2 className="text-xs">
+                            {datas[detailID - 1]?.name}
+                          </h2>
                         </div>
                       </div>
                       <div className="flex items-center">
@@ -63,7 +65,9 @@ const DetailModal = ({ openDetails, setOpenDetails }) => {
                           <h2 className="text-xs font-medium">Username</h2>
                         </div>
                         <div className="bg-gray-200 rounded-md flex-1 p-2">
-                          <h2 className="text-xs">Leanne Graham</h2>
+                          <h2 className="text-xs">
+                            {datas[detailID - 1]?.username}
+                          </h2>
                         </div>
                       </div>
                       <div className="flex items-center">
@@ -71,7 +75,9 @@ const DetailModal = ({ openDetails, setOpenDetails }) => {
                           <h2 className="text-xs font-medium">Email</h2>
                         </div>
                         <div className="bg-gray-200 rounded-md flex-1 p-2">
-                          <h2 className="text-xs">Leanne Graham</h2>
+                          <h2 className="text-xs">
+                            {datas[detailID - 1]?.email}
+                          </h2>
                         </div>
                       </div>
                       <div className="flex items-center">
@@ -79,7 +85,13 @@ const DetailModal = ({ openDetails, setOpenDetails }) => {
                           <h2 className="text-xs font-medium">Address</h2>
                         </div>
                         <div className="bg-gray-200 rounded-md flex-1 p-2">
-                          <h2 className="text-xs">Leanne Graham</h2>
+                          <h2 className="text-xs">
+                            {`${datas[detailID - 1]?.address.street}, ${
+                              datas[detailID - 1]?.address.suite
+                            }, ${datas[detailID - 1]?.address.city}, ${
+                              datas[detailID - 1]?.address.zipcode
+                            }`}
+                          </h2>
                         </div>
                       </div>
                       <div className="flex items-center">
@@ -87,7 +99,9 @@ const DetailModal = ({ openDetails, setOpenDetails }) => {
                           <h2 className="text-xs font-medium">Phone</h2>
                         </div>
                         <div className="bg-gray-200 rounded-md flex-1 p-2">
-                          <h2 className="text-xs">Leanne Graham</h2>
+                          <h2 className="text-xs">
+                            {datas[detailID - 1]?.phone}
+                          </h2>
                         </div>
                       </div>
                       <div className="flex items-center">
@@ -95,7 +109,9 @@ const DetailModal = ({ openDetails, setOpenDetails }) => {
                           <h2 className="text-xs font-medium">Website</h2>
                         </div>
                         <div className="bg-gray-200 rounded-md flex-1 p-2">
-                          <h2 className="text-xs">Leanne Graham</h2>
+                          <h2 className="text-xs">
+                            {datas[detailID - 1]?.website}
+                          </h2>
                         </div>
                       </div>
                       <div className="flex items-center">
@@ -103,7 +119,13 @@ const DetailModal = ({ openDetails, setOpenDetails }) => {
                           <h2 className="text-xs font-medium">Company</h2>
                         </div>
                         <div className="bg-gray-200 rounded-md flex-1 p-2">
-                          <h2 className="text-xs">Leanne Graham</h2>
+                          <div className="text-xs flex-col">
+                            <h2>{datas[detailID - 1].company.name || null}</h2>
+                            <h2>
+                              {datas[detailID - 1].company.catchPhrase || null}
+                            </h2>
+                            <h2>{datas[detailID - 1].company.bs || null}</h2>
+                          </div>
                         </div>
                       </div>
                     </div>

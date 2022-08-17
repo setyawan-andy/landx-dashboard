@@ -61,7 +61,7 @@ const Sidebar = () => {
       <div
         className={`${
           openSidebar ? "w-64" : "w-16"
-        } bg-[#1d1e41] min-h-screen text-gray-400 px-4`}
+        } bg-[#1d1e41] absolute md:relative z-10 md:z-0 min-h-[100vh] md:min-h-screen text-gray-400 px-4`}
       >
         <div className="py-6 flex justify-between pl-2">
           {openSidebar && (

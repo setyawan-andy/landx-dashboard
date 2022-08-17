@@ -13,34 +13,34 @@ const counts = [
   {
     name: "New Users",
     count: 10,
-    bgColor: "blue-200",
+    bgColor: "bg-blue-200",
     icon: <BsFillRecordCircleFill size={24} className="text-blue-400" />,
   },
   {
     name: "Pending Users",
     count: 2147,
-    bgColor: "orange-200",
+    bgColor: "bg-orange-200",
     icon: <CgSandClock size={24} className="text-orange-400" />,
   },
   {
     name: "Closed Users",
     count: 31457,
-    bgColor: "green-200",
+    bgColor: "bg-green-200",
     icon: <RiLock2Fill size={24} className="text-green-400" />,
   },
   {
     name: "Deleted Users",
     count: 23419,
-    bgColor: "red-200",
+    bgColor: "bg-red-200",
     icon: <FaTrash size={24} className="text-red-400" />,
   },
 ];
 
-const Userpage = () => {
+const Userpage = ({ datas, search, setSearch }) => {
   return (
     <div className="bg-[#f7f7f7] w-full">
-      <Header />
-      <div className="my-6 flex gap-6 justify-evenly mx-6">
+      <Header setSearch={setSearch} />
+      <div className="my-6 hidden md:flex gap-6 justify-evenly mx-6">
         {counts.map((count, index) => (
           <Card
             key={index}
@@ -52,7 +52,7 @@ const Userpage = () => {
         ))}
       </div>
       <div className="my-6 mx-8">
-        <UserTable />
+        <UserTable datas={datas} search={search} />
       </div>
     </div>
   );

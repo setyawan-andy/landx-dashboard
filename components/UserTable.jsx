@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+
+import DetailModal from "./DetailModal";
 
 const text =
   "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,";
 
 const UserTable = () => {
+  const [openDetails, setOpenDetails] = useState(false);
+
   return (
     <div className="bg-[#FFFFFF] h-screen rounded-lg px-8 pt-6 pb-4">
       <table>
@@ -20,7 +24,10 @@ const UserTable = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className="border-b border-gray-200">
+          <tr
+            className="border-b border-gray-200 cursor-pointer"
+            onClick={() => setOpenDetails(true)}
+          >
             <td className="p-3 whitespace-nowrap text-xs text-gray-700">1</td>
             <td className="p-3 whitespace-nowrap text-xs text-gray-700">
               Leanne Graham
@@ -62,6 +69,7 @@ const UserTable = () => {
           </tr>
         </tbody>
       </table>
+      <DetailModal openDetails={openDetails} setOpenDetails={setOpenDetails} />
     </div>
   );
 };

@@ -4,12 +4,24 @@ import Image from "next/image";
 import { BsFillBellFill } from "react-icons/bs";
 import { FaEnvelope } from "react-icons/fa";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { BiSearch } from "react-icons/bi";
 
 const Header = () => {
   return (
     <div className="bg-[#FFFFFF] px-8 py-5 shadow-sm flex justify-between items-center">
       <div className="text-xl font-semibold">Users</div>
       <div className="flex gap-6 justify-center items-center">
+        <div className="relative">
+          <input
+            type="text"
+            className="border w-64 border-gray-200 rounded-md py-2 px-4 focus:outline-gray-300 text-xs text-gray-700"
+            placeholder="Search by name, username, email"
+          />
+          <BiSearch
+            className="absolute top-2 right-2 text-gray-400"
+            size={20}
+          />
+        </div>
         <div>
           <BsFillBellFill
             size={18}

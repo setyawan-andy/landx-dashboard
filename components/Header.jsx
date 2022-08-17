@@ -41,6 +41,7 @@ const Header = ({ setSearch }) => {
             width={32}
             height={32}
             className="rounded-full object-cover"
+            alt="avatar"
           />
         </div>
         <div className="md:flex gap-1 cursor-pointer hidden">
